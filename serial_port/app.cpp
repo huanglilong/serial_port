@@ -92,12 +92,11 @@ void APP::start_read_thread()
 
 void APP::start_write_thread(void)
 {
-    if ( not writing_status == false )
+    if (!writing_status == false )
 	{
 		fprintf(stderr,"write thread already running\n");
 		return;
 	}
-
 	else
 	{
 		write_thread();
@@ -122,7 +121,7 @@ void APP::read_thread()
 	reading_status = true;
 	while(!_thread_shoudle_exit)
 	{
-		read_message();
+        read_message();
 		usleep(10000); // Read batches at 100Hz
 	}
 
@@ -144,8 +143,9 @@ void APP::write_thread()
     }
     while(!_thread_shoudle_exit)
 	{
-		usleep(250000);   // Stream at 4Hz
+		//printf("write data here! \n");
 		write_message(buf, 20);
+		usleep(25000);   // Stream at 40Hz
 	}
 
     // signal end

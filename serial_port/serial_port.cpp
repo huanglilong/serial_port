@@ -128,7 +128,7 @@ read_message(char *ch)
 	// --------------------------------------------------------------------------
 	if (result > 0)
 	{
-		printf("%d", cp);
+		printf("%d\n", cp);
 	}
 
 	// Couldn't read from port
@@ -457,12 +457,12 @@ _read_port(unsigned char &cp)
 {
 
 	// Lock
-	pthread_mutex_lock(&lock);
-
+	//pthread_mutex_lock(&lock);
+	
 	int result = read(fd, &cp, 1);
 
 	// Unlock
-	pthread_mutex_unlock(&lock);
+	//pthread_mutex_unlock(&lock);
 
 	return result;
 }

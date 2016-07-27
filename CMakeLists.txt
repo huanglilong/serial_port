@@ -7,6 +7,9 @@
 # cmake version 3.2 or later
 cmake_minimum_required(VERSION 3.2)
 
+# debug mode
+set(CMAKE_BUILD_TYPE Debug)
+
 # project name
 project(SerialPort)
 
